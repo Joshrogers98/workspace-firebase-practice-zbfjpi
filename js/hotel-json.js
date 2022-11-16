@@ -17,7 +17,14 @@ $("input[type='button']").click(function (e) {
   //get the value of form
 
   /* save the data to database */
-
+  var inputdata = $('form').serializeArray();
+  console.log(inputdata);
+  var inputJSON = {};
+  inputdata.forEach((entry) => {
+    inputJSON[entry.name] = entry.value;
+  });
+  console.log(inputJSON);
+  firebase.firestore().collection('hotelCollection').add(inputJSON);
   /* clear the entry */
   $('form')[0].reset();
 });
@@ -30,7 +37,7 @@ array1.forEach(element => console.log(element));
 
 /* read the data from the database */
 
-firebase
+/*firebase
   .firestore()
   .collection('myList')
   .onSnapshot((querySnapshot) => {
@@ -40,5 +47,5 @@ firebase
       console.log(doc.data().room);
       console.log(doc.data().checkout);
     });
-  });
+  });*/
 
