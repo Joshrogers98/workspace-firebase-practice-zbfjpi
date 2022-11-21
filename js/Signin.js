@@ -48,10 +48,10 @@ $('#Login').submit(function (e) {
 });
 
 $('#googleSignIn').click(function(){
-  //import { GoogleAuthProvider } from "firebase/auth";
-  /*const provider = new GoogleAuthProvider();
+  /*import { GoogleAuthProvider } from "firebase/auth";
+  const provider = new GoogleAuthProvider();
 
-  //import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+  import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
   const auth = getAuth();
   signInWithPopup(auth, provider)
     .then((result) => {
