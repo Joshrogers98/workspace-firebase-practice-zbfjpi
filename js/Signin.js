@@ -75,6 +75,7 @@ $('#googleSignIn').click(function(){
     firebase.auth().signInWithPopup(provider).then((result) => {
       const user = result.user;
       console.log(user.email);
+      window.location.href="../Surveyresult.html";
     }).catch((error) => {
       console.log("Error Message " + error.message);
     });
