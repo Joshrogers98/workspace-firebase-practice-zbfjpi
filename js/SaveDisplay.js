@@ -27,6 +27,23 @@ $(".sampleSurvey input[type='submit']").click(function (e) {
   firebase.firestore().collection('surveydata').add(inputJSON);
 });
 
+firebase.auth().onAuthStateChanged((user) => {
+  if(user){
+    console.log(user.email);
+  }else{
+    console.log('logged out');
+  }
+});
+
+$('#signout').click(function() {
+firebase
+  .auth
+  .signOut()
+  .then(() => {
+    window.location.href = 'index.html';
+  });
+});
+
 var ansA = 0;
 var ansB = 0;
 var ansC = 0;
@@ -43,7 +60,8 @@ firebase
     ansD = 0;
     ansE = 0;
     querySnapshot.forEach(function (doc) {
-      console.log('document -- ', doc.data().choice);
+      //if(doc.data().choice != null){
+      //console.log('document -- ', doc.data().choice)};
       var c = doc.data().choice;
       switch (c) {
         case 'A':
