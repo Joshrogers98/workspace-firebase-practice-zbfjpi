@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 $('#signout').click(function() {
 firebase
-  .auth
+  .auth()
   .signOut()
   .then(() => {
     window.location.href = 'index.html';
